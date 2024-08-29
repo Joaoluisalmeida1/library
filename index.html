@@ -9,5 +9,52 @@
 </head>
 <body>
     <script src="script.js"></script>
+    <div class="container">
+        <div class="header">
+            <img class = "white-svg logo" src="./images/alpha-b-box.svg" alt="Library icon">
+            <div class="greeting">Hello,
+                <p>unnamedplayer (@unnamedplayer)</p>
+            </div>
+            <img class = "white-svg userlogo" src="./images/account-circle.svg" alt="Library icon">
+        </div>
+        <div class="content">
+            <form>
+                <p>
+                    <label for="title"><span>Title</span>
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <p>
+                        <input type="text" id="title" name="title" required>
+                    </p>
+                    
+                </p>
+                <p>
+                    <label for="author"><span>Author</span>
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <p>
+                        <input type="text" id="author" name="author" required>
+                    </p>
+                </p>
+                <p>
+                    <label for="pages"><span>Pages</span>
+                        <strong><span aria-label="required">*</span></strong>
+                    </label>
+                    <p>
+                        <input type="number" id="pages" name="pages" required>
+                    </p>
+                </p>
+                <p>
+                    <label for="read"><span>Have you read it?</span></label>
+                    <input type="checkbox" id="read" name="read">
+                </p>
+                <p>
+                    <button type="submit">NEW BOOK</button>
+                </p>
+            
+            </form>
+            <div class="book-boxes">book boxes</div>
+        </div>
+    </div>
 </body>
 </html>
