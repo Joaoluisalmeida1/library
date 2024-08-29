@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-
     const myLibrary = [];
 
     function Book(title, author, pages, read) {
@@ -10,38 +8,51 @@ document.addEventListener("DOMContentLoaded", function() {
         this.read = read;
     }
 
-    Book.prototype.info = function() {
-        const readStatus = this.read ? "already read" : "not read yet";
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}.`
-    }
-
     function addBookToLibrary(book) {
         myLibrary.push(book);
     }
 
     function displayLibrary() {
         const libraryDiv = document.querySelector('.book-boxes');
-        libraryDiv.innerHTML = '' //clear previous content
+        libraryDiv.innerHTML = ''; // Clear previous content
 
         myLibrary.forEach((book, index) => {
-            console.log(book.info());
             const bookCard = document.createElement('div');
             bookCard.classList.add('book-card');
             bookCard.innerHTML = `
                 <h3>${book.title}</h3>
                 <p>by ${book.author}</p>
                 <p>${book.pages} pages</p>
-                <p>${book.read ? 'Read' : 'Not Read yet'}</p>
-                <button onclick="toggleReadStatus(${index})">Toggle Read Status</button>
+                <p class="read-status">${book.read ? 'Read' : 'Not Read yet'}</p>
+                <button class="toggle-btn" data-index="${index}">Toggle Read Status</button>
+                <button class="remove-btn" data-index="${index}">Remove Book</button>
             `;
             libraryDiv.appendChild(bookCard);
         });
-    };
+    }
 
     function toggleReadStatus(index) {
-        myLibrary[index].read = !myLibrary[index].read;
-        displayLibrary(); // update the display
+        const book = myLibrary[index];
+        if (book) {
+            book.read = !book.read;
+            displayLibrary(); // Update the display
+        }
     }
+
+    function removeBook(index) {
+        myLibrary.splice(index, 1); // Remove the book from the library array
+        displayLibrary(); // Update the display
+    }
+
+    // Event delegation to handle clicks on the toggle and remove buttons
+    document.querySelector('.book-boxes').addEventListener('click', function(event) {
+        const index = event.target.getAttribute('data-index');
+        if (event.target.classList.contains('toggle-btn')) {
+            toggleReadStatus(index);
+        } else if (event.target.classList.contains('remove-btn')) {
+            removeBook(index);
+        }
+    });
 
     const form = document.querySelector('form');
 
