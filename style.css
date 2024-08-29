@@ -3,6 +3,10 @@
     /* border: 1px solid red; */
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 .container {
     display: grid;
     height: 100vh;
@@ -12,12 +16,11 @@
 
 .header {
     display: grid;
-    background-color: rgb(201, 51, 51);
     font-weight: bolder;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: whitesmoke;
     grid-template-columns: 2fr 4fr 1fr;
     border-bottom: 2px solid black;
+    background-color: #4A90E2;
+    color: #F5F7FA;
 
 }
 
@@ -30,6 +33,10 @@
 .greeting p {
     font-size: 1rem;
     margin-top: 1rem;
+}
+
+body, .content {
+    color: #333333;
 }
 
 .logo {
@@ -58,7 +65,7 @@
 }
 
 .content {
-    background-color: rgb(105, 104, 104);
+    background-color: #F5F7FA;
     display: grid;
     grid-template-columns: 1fr 4fr;
 }
@@ -70,7 +77,6 @@ form {
     grid-template-rows: repeat(20, 5%);
     border-right: 2px solid black;
     margin-left: 2.5rem;
-    color: white;
     font-size: 1.3rem;
 }
 
@@ -109,12 +115,38 @@ form button {
     margin-left: 0.5rem;
     margin-top: 2rem;
     border: 1px solid black;
-    background-color: rgb(201, 51, 51);
     font-weight: bold;
     cursor: pointer;
+    background-color: #4A90E2;
 }
 
+form button {
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+  
 form button:hover {
-    background-color: rgb(160, 39, 39);
+    background-color: #50E3C2;
+}
 
+form button, input[type="text"], input[type="number"] {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.book-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input, form button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
